@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- Horizontal Score Layout begins here -->
     <LinearLayout
         android:id="@+id/score_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:orientation="horizontal">
 
-
+        <!-- **************************** Score side for Team A begins here *****************************************-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -22,61 +25,138 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/team_a_team_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Team A"
+                android:text="@string/team_name_A"
                 android:textColor="#616161"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/team_a_score"
+                android:textSize="16sp" />
+            <!--  Score with adding/removing goals here -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/increase_score_team_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="scoreGoalTeamA"
+                    android:text="@string/score_goal"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/team_a_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="@string/score_team_A"
+                    android:textColor="#000000"
+                    android:textSize="56sp" />
+
+                <Button
+                    android:id="@+id/decrease_score_team_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="rescindGoalTeamA"
+                    android:text="@string/remove_goal"
+                    android:textAllCaps="true" />
+
+            </LinearLayout>
+            <!-- Card section for Team A begins here -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp">
+                <!-- Yellow card with button -->
+                <LinearLayout
+                    android:id="@+id/team_a_yellow_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/yellow_card" />
+
+                    <Button
+                        android:id="@+id/team_a_yellow_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FACA3A"
+                        android:onClick="giveYellowTeamA"
+                        android:text="@string/give_yellow" />
+
+                </LinearLayout>
+                <!-- Red card with button -->
+                <LinearLayout
+                    android:id="@+id/team_a_red_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/team_a_yellow_section"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/red_card" />
+
+                    <Button
+                        android:id="@+id/team_a_red_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#a40100"
+                        android:onClick="giveRedTeamA"
+                        android:text="@string/give_red" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
             <Button
-                android:layout_width="match_parent"
+                android:id="@+id/team_a_snitch_catch"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:onClick="plusThreeTeamA"
-                android:text="+3 Points"
-                android:textAllCaps="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:onClick="plusTwoTeamA"
-                android:text="+2 Points"
-                android:textAllCaps="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="plusOneTeamA"
-                android:text="Free Throw"
-                android:textAllCaps="true" />
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="snitchCatchTeamA"
+                android:text="@string/snitch_caught" />
 
         </LinearLayout>
-
-
+        <!-- ************************ Score side for Team A ENDS here ********************************* -->
+        <!-- Dividing line -->
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"/>
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray" />
 
+        <!-- ***********************Score side for Team B begins here ******************************** -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -84,48 +164,125 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/team_b_team_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Team B"
+                android:text="@string/team_name_B"
                 android:textColor="#616161"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/team_b_score"
+                android:textSize="16sp" />
+            <!--  Score with adding/removing goals here -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="56sp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/increase_score_team_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="scoreGoalTeamB"
+                    android:text="@string/score_goal"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/team_b_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:text="@string/score_team_B"
+                    android:textColor="#000000"
+                    android:textSize="56sp" />
+
+                <Button
+                    android:id="@+id/decrease_score_team_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="rescindGoalTeamB"
+                    android:text="@string/remove_goal"
+                    android:textAllCaps="true" />
+
+            </LinearLayout>
+            <!-- Card section for Team B begins here -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="4dp">
+                <!-- Yellow card with button -->
+                <LinearLayout
+                    android:id="@+id/team_b_yellow_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/yellow_card" />
+
+                    <Button
+                        android:id="@+id/team_b_yellow_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FACA3A"
+                        android:onClick="giveYellowTeamB"
+                        android:text="@string/give_yellow" />
+
+                </LinearLayout>
+                <!-- Red card with button -->
+                <LinearLayout
+                    android:id="@+id/team_b_red_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/team_b_yellow_section"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/red_card" />
+
+                    <Button
+                        android:id="@+id/team_b_red_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#a40100"
+                        android:onClick="giveRedTeamB"
+                        android:text="@string/give_red" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
             <Button
-                android:layout_width="match_parent"
+                android:id="@+id/team_b_snitch_catch"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:onClick="plusThreeTeamB"
-                android:text="+3 Points"
-                android:textAllCaps="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:onClick="plusTwoTeamB"
-                android:text="+2 Points"
-                android:textAllCaps="true" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="plusOneTeamB"
-                android:text="Free Throw"
-                android:textAllCaps="true" />
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="snitchCatchTeamB"
+                android:text="@string/snitch_caught" />
 
         </LinearLayout>
 

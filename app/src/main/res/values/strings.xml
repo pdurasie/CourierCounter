@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Court Counter</string>
+    <string name="app_name">QuidditchCounter</string>
+    <string name="team_name_A">Team A</string>
+    <string name="team_name_B">Team B</string>
+    <string name="score_team_A">0</string>
+    <string name="score_team_B">0</string>
+    <string name="score_goal">+10</string>
+    <string name="remove_goal">-10</string>
+    <string name="give_yellow">Yellow card (0)</string>
+    <string name="give_red">Red card (0)</string>
+    <string name="snitch_caught">Snitch Catch!</string>
 </resources>
